@@ -52,15 +52,19 @@ task runFraction(type: JavaExec) {
   
   // only works if two arguments are provided
   // Try: using default values in case non or only one parameter is provided
-  if (project.hasProperty("num1") && project.hasProperty("num2")) {
-    args(project.getProperty('num1'), project.getProperty('num2'));
-  } else if (project.hasProperty("num1")){
-    args(project.getProperty('num1'), 1);
+  if (project.hasProperty("denom") && project.hasProperty(num")) {
+    args(project.getProperty('num'), project.getProperty('denom'));
+  } else if (project.hasProperty("denom")){
+    args(1, project.getProperty('denom'));
   }
-  
-  // default arguments if non are given
-  args '1'
-  args '2'
+  } else if (project.hasProperty("num")){
+    args(project.getProperty('num), 3);
+  }
+  else{
+    // default arguments if non are given
+    args '1'
+    args '2'
+  }
 }
 
 // Try:
