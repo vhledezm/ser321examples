@@ -44,11 +44,23 @@ task runAppAgain(type: JavaExec) {
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
 task runFraction(type: JavaExec) {
   group 'Fraction Tasks'
-  description 'Tasks which runs Fraction with no arguments'
+  description 'Tasks which runs Fraction with default parameters no arguments'
 
   classpath = sourceSets.main.runtimeClasspath
 
   main = 'Fraction'
+  
+  // default arguments if non are given
+  args '1'
+  args '2'
+  
+  // only works if two arguments are provided
+  // Try: using default values in case non or only one parameter is provided
+  if (project.hasProperty("num1") && project.hasProperty("num2")) {
+    args(project.getProperty('num1'), project.getProperty('num2'));
+  } else if (project.hasProperty("num1")){
+    args(project.getProperty('num1'), 1);
+  }
 }
 
 // Try:
