@@ -38,38 +38,32 @@ public class Fraction {
    }
 
    public static void main (String args[]) {
-      try {
-         // create a new instance
-         // Fraction *frac = [[Fraction alloc] init];
+         
+      if (args.length == 2) {
          Fraction frac = new Fraction();
-         
-         if (args.length == 2) {
-            int argX = 0;
-            int argY = 0;
-            try {
-                argX = Integer.parseInt(args[0]);
-                argY = Integer.parseInt(args[1]);
-            } catch (Exception e) {
-               System.out.println("Arguments: " + args[0] + ", " + args[1] + " must be integers.");
-               System.exit(1);
-            }
-               // set the values
-               frac.setNumerator(argX);
-               frac.setDenominator(argY);
-
-               // print it
-               System.out.print("The fraction is: ");
-               frac.print();
-               System.out.println("");
             
-            } else {
-               System.out.println("Exactly 2 arguments should be provided.\n gradle run --args='1 2'");
-            }
+         int argX = 0;
+         int argY = 0;
+            
+         try {
+            argX = Integer.parseInt(args[0]);
+            argY = Integer.parseInt(args[1]);
+         } catch (Exception e) {
+            System.out.println("Arguments: " + args[0] + ", " + args[1] + " must be integers.");
+            System.exit(1);
          }
-         
+            // set the values
+            frac.setNumerator(argX);
+            frac.setDenominator(argY);
 
-      }catch(Exception e) {
-         e.printStackTrace();
+            // print it
+            System.out.print("The fraction is: ");
+            frac.print();
+            System.out.println("");
+            
+         } else {
+            System.out.println("Exactly 2 arguments should be provided.\n gradle run --args='1 2'");
+         }
       }
    }
 }
