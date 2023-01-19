@@ -56,7 +56,6 @@ task runFraction(type: JavaExec) {
     args(project.getProperty('num'), project.getProperty('denom'));
   } else if (project.hasProperty("denom")){
     args(1, project.getProperty('denom'));
-  }
   } else if (project.hasProperty("num")){
     args(project.getProperty('num'), 3);
   }
